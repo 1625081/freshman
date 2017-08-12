@@ -1,0 +1,11 @@
+$('.results').append("<%= j render(partial: 'posts/results',locals:{posts: @results.first(1)})%>");
+<% @search_ids = [] %>
+<% for post in @results do @search_ids << post.id end %>
+$("#search_ids").remove();
+$("form:last").prepend("<%= j hidden_field_tag(:search_ids,@search_ids) %>");
+if ($('#search_ids').val() == "")
+{
+  $(".fluid:last").removeClass("green");
+  $(".fluid:last").addClass("disabled");
+  $(".fluid:last").html("已经到底了_(:з」∠)_");
+}

@@ -1,0 +1,26 @@
+<%# notice %>
+<div class="ui top attached blue inverted header">
+  <div class="ui center aligned container">
+    <p>新生答疑汇总</p></div>
+</div>
+
+<div class="ui attached center aligned segment" style="background-size:100% 100%;background-image:url('http://ofnfnmmn0.bkt.clouddn.com/blueBG.jpg');background-repeat:no-repeat;">
+  <div class="ui fluid category search" style="padding:15% 0 20% 0">
+    <form action="/posts/search" method="post" data-remote="true">
+      <div class="ui icon input">
+        <input class="prompt" type="text" name="key" placeholder="Search keywords...">
+        <i class="search link icon"></i>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="results">
+  <%= render(partial: 'posts/results',locals:{posts: @results.first(1)}) %>
+</div>
+
+<%= render(partial: "posts/more_button",locals:{results: @results})%>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>

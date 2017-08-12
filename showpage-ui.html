@@ -1,0 +1,69 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/semantic-ui/2.2.11/semantic.js"></script>
+  <link href="https://cdn.bootcss.com/semantic-ui/2.2.11/semantic.min.css" rel="stylesheet">
+</head>
+
+<body style="background:beige">
+  <div class="ui top attached blue inverted header">
+    <div class="ui center aligned container">
+      <p>新生答疑汇总</p></div>
+  </div>
+    <!-- <div style="display:flex;flex-direction:row;background:gainsboro;">
+      <i class="huge help circle outline icon"></i>
+      <div style="margin-top:10px;">
+        <h5>请问我应该怎么转专业？</h5>
+        <div style="position:relative;display:inline-block">
+          <p>23333</p>
+        </div>
+        <p>请问我应该怎么转专业？请问我应该怎么转专业？请问我应该怎么转专业？请问我应该怎么转专业？请问我应该怎么转专业？请问我应该怎么转专业？请问我应该怎么转专业？请问我应该怎么转专业？请问我应该怎么转专业？请问我应该怎么转专业？请问我应该怎么转专业？请问我应该怎么转专业？请问我应该怎么转专业？请问我应该怎么转专业？请问我应该怎么转专业？请问我应该怎么转专业？请问我应该怎么转专业？请问我应该怎么转专业？请问我应该怎么转专业？请问我应该怎么转专业？请问我应该怎么转专业？请问我应该怎么转专业？</p>
+      </div>
+    </div> -->
+
+  <div class="ui attached segment comments" style="background:gainsboro;max-width:100%" >
+    <div class="comment">
+      <div class="avatar" style="width:auto;margin:0">
+        <i class="huge help circle outline icon"></i>
+      </div>
+      <div class="content">
+        <a class="author">请问学校里哪里可以洗澡？</a>
+        <div class="metadata">
+          <span class="date">
+            <%= @post.created_at.strftime('%Y-%m-%d %H:%M:%S').to_s %>
+          </span>
+        </div>
+        <div class="text">
+          请问学校里哪里可以洗澡？请问学校里哪里可以洗澡？请问学校里哪里可以洗澡？请问学校里哪里可以洗澡？请问学校里哪里可以洗澡？
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui attached segment comments" style="max-width:100%">
+    <div class="comment">
+      <a class="avatar" style="height:41px;">
+        <img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1501513171&di=fc775f260a0da6c253df3c5f6a08921d&src=http://www.buaa.edu.cn/__local/B/CD/A6/968D8F6600C0B8195CD59008BF5_9249A080_12AB7.jpg">
+      </a>
+      <div class="content">
+        <a class="author">BUAA校会</a>
+        <div class="metadata">
+          <span class="date">Today at 5:42PM</span>
+        </div>
+        <div class="text">
+          不会百度么？不会百度么？不会百度么？
+        </div>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <div class="ui center aligned container">
+    <div class="ui buttons">
+      <button class="ui red button">返回</button>
+      <div class="or"></div>
+      <button class="ui positive button">提问</button>
+    </div>
+  </div>
+</body>
+
+</html>

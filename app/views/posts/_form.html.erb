@@ -1,0 +1,69 @@
+<%= form_for(post) do |f| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class ="ui form">
+    <div class="field">
+      <%= f.label :content %>
+      <%= f.text_area :content %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :replier %>
+    <%= f.text_field :replier %>
+  </div>
+
+  <div>
+    <%= f.label :answer %>
+    <%= f.text_area :answer %>
+  </div>
+
+
+  <input type="hidden" name="post[tags]" id="tags_submit" value="">
+
+  <div class="ui right labeled left icon input">
+    <i class="tags icon"></i>
+    <input type="text" name="add_tag" placeholder="Enter tags">
+    <div class="ui button" id="add_tag">
+      Add Tag
+    </div>
+  </div>
+
+  <div class="ui tag_container">
+  <br/>
+    <% for tag in Tag.all %>
+      <% if @post.tags.include? tag %>
+        <a class="ui tag label choosen_tag teal" data-tag="<%= tag.name %>">
+          <%= tag.name %>
+        </a>
+      <% else %>
+        <a class="ui tag label choosen_tag" data-tag="<%= tag.name %>">
+          <%= tag.name %>
+        </a>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <% if params[:action] == "new" %>
+      <div class="ui teal button" id="submit_post">提交</div>
+    <% elsif params[:action] == "edit" %>
+      <div class="ui teal button" id="submit_post">更新</div>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,3 @@
+$('.results').empty();
+html = "<%= j render(partial: 'posts/results',locals:{posts: @results.first(1)}) %>";
+$('.results').append(html);
