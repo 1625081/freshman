@@ -1,4 +1,4 @@
-$('.results').append("<%= j render(partial: 'posts/results',locals:{posts: @results.first(1)})%>");
+$('.results').append("<%= j render(partial: 'posts/results',locals:{posts: @results.first(10)})%>");
 <% @search_ids = [] %>
 <% for post in @results do @search_ids << post.id end %>
 $("#search_ids").remove();

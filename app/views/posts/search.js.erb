@@ -1,3 +1,6 @@
 $('.results').empty();
-html = "<%= j render(partial: 'posts/results',locals:{posts: @results.first(1)}) %>";
+$('.more_button').empty();
+html = "<%= j render(partial: 'posts/results',locals:{posts: @results.first(10)}) %>";
+btn = "<%= j render(partial:'posts/more_button', locals:{results: @results}) %>";
 $('.results').append(html);
+$('.more_button').append(btn);

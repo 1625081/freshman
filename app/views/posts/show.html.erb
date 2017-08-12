@@ -40,7 +40,9 @@
     </div>
   </div>
 </div>
-<%= link_to 'Edit The Post', edit_post_path(@post),:class => "ui attached yellow button" %>
+<% if current_user %>
+  <%= link_to 'Edit The Post', edit_post_path(@post),:class => "ui attached yellow button" %>
+<% end %>
 <br/>
 <div class="ui center aligned container">
   <div class="ui buttons">

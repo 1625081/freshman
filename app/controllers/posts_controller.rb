@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authericate_user!, only: [:edit, :update, :destroy, :create, :new]
 
   # GET /posts
   # GET /posts.json
@@ -51,8 +52,8 @@ class PostsController < ApplicationController
     if params[:search_ids]
       @results=[]
       #这里是为了让房间和房间描述保持一致
-      if params[:search_ids].split(" ").size > 1
-        @searchs=params[:search_ids].split(" ").drop(1)
+      if params[:search_ids].split(" ").size > 10
+        @searchs=params[:search_ids].split(" ").drop(10)
         @searchs.each do |r|
           @results<<Post.find(r)
         end

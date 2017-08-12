@@ -1,21 +1,23 @@
 <% for post in posts %>
 <div class="ui attached segment comments" style="max-width:100%">
-  <div class="comment">
-    <a class="avatar" style="height:41px;">
-      <img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1501513171&di=fc775f260a0da6c253df3c5f6a08921d&src=http://www.buaa.edu.cn/__local/B/CD/A6/968D8F6600C0B8195CD59008BF5_9249A080_12AB7.jpg">
+  <div class="comment main_post" data-link="<%= post_path(post) %>">
+    <a class="avatar" style="height:40px;">
+      <img src="http://ofnfnmmn0.bkt.clouddn.com/xiaoice.jpg">
     </a>
     <div class="content">
       <div class="text">
         <%= post.title %>
-        <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <button class="circular ui right floated icon red button">
-            <i class="remove link icon"></i>
-          </button>
-        <% end %>
-        <%= link_to edit_post_path(post) do %>
-          <button class="circular ui right floated icon blue button">
-            <i class="write link icon"></i>
-          </button>
+        <% if current_user %>
+          <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <button class="circular ui right floated icon red button">
+              <i class="remove link icon"></i>
+            </button>
+          <% end %>
+          <%= link_to edit_post_path(post) do %>
+            <button class="circular ui right floated icon blue button">
+              <i class="write link icon"></i>
+            </button>
+          <% end %>
         <% end %>
       </div>
       <% for tag in post.tags %>

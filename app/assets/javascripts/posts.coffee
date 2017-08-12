@@ -2,6 +2,22 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on "turbolinks:load", ->
+  $('.ui.dropdown')
+    .dropdown()
+  # $('.main_post').on "click", ->
+  #   href = $(this).data("link")
+  #   console.log($(this))
+  #   window.location.href = href
+  post_dir = () ->
+    href = $(this).data("link")
+    window.location.href = href
+
+  $('.main_post').on "click", post_dir
+  $(".red.button , .blue.button").on 'click', (e) ->
+    e.stopPropagation()
+
+  $('#flash').on "click", ->
+    $(this).hide()
   $('.choosen_tag').on "click", ->
     $(this).toggleClass "teal"
   $('#add_tag').on "click", ->
