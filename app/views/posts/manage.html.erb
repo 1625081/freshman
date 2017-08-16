@@ -1,0 +1,24 @@
+
+<div class="ui top attached blue inverted header">
+  <div class="ui center aligned container">
+    <p>新生答疑汇总</p></div>
+    <%# power set %>
+    <% if current_user %>
+      <div class="ui top right attached label">
+        <%= link_to new_post_path  do %>
+          <i class="add icon"></i>新建问题&nbsp;|
+        <% end %>
+        <%= link_to "/posts/manage"  do %>
+          <i class="setting icon"></i>待办问题&nbsp;|
+        <% end %>
+        <%= link_to logout_path, method: "delete"  do %>
+          <i class="user icon"></i>&nbsp;登出
+        <% end %>
+      </div>
+    <% end %>
+
+</div>
+
+<div class="results">
+  <%= render(partial: 'posts/results',locals:{posts: @posts}) %>
+</div>

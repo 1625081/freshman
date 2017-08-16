@@ -1,12 +1,12 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :authericate_user!, only: [:edit, :update, :destroy, :create, :new]
+  before_action :authericate_user!, only: [:edit, :update, :destroy, :new, :manage]
 
   # GET /posts
   # GET /posts.json
   def index
     # @posts = Post.all
-    @results = Post.all
+    @results = Post.all.where("status=?", 1)
   end
 
   # GET /posts/1
@@ -70,18 +70,31 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    names = params[:post][:tags].split(",")
-    @post.tags = names_to_tags(names)
+    if params[:post][:tags]
+      names = params[:post][:tags].split(",")
+      @post.tags = names_to_tags(names)
+      @post.status = 1 #管理员创建
+    else
+      @post.status = 0 #学生创建
+    end
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to :root, notice: '你的问题已创建成功！' }
         format.json { render :show, status: :created, location: @post }
-      else
+      elsif current_user
         format.html { render :new }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      else
+        format.html { redirect_to :root, notice: '创建失败，未知错误' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+
+  end
+
+  def manage #管理待办问题
+    @posts = Post.where("status=?", 0)
   end
 
   # PATCH/PUT /posts/1
@@ -131,6 +144,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content, :answer, :replier)
+      params.require(:post).permit(:title, :content, :answer, :replier, :status)
     end
 end

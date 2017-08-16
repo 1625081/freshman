@@ -8,6 +8,9 @@
         <%= link_to new_post_path  do %>
           <i class="add icon"></i>新建问题&nbsp;|
         <% end %>
+        <%= link_to "/posts/manage"  do %>
+          <i class="setting icon"></i>待办问题&nbsp;|
+        <% end %>
         <%= link_to logout_path, method: "delete"  do %>
           <i class="user icon"></i>&nbsp;登出
         <% end %>

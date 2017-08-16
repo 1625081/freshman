@@ -13,12 +13,20 @@
               <i class="remove link icon"></i>
             </button>
           <% end %>
-          <%= link_to edit_post_path(post) do %>
-            <button class="circular ui right floated icon blue button">
-              <i class="write link icon"></i>
-            </button>
+          <% if post.status == 1 %>
+            <%= link_to edit_post_path(post) do %>
+              <button class="circular ui right floated icon blue button">
+                <i class="write link icon"></i>
+              </button>
+            <% end %>
+          <% else %>
+            <%= link_to edit_post_path(post) do %>
+              <button class="circular ui right floated blue button">
+                通过审核
+              </button>
+            <% end %>
           <% end %>
-        <% end %>
+      <% end %>
       </div>
       <% for tag in post.tags %>
         <a class="ui tag label">

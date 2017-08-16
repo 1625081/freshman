@@ -48,6 +48,28 @@
   <div class="ui buttons">
     <%= link_to '返回', posts_path, :class => "ui red button" %>
     <div class="or"></div>
-    <button class="ui positive button">提问</button>
+    <button class="ui blue button" id="ask_question">提问</button>
+    <div class="ui page dimmer" id="new_question">
+      <div class="content">
+        <div class="center">
+          <h3>我要提问：</h3>
+          <div class="description">
+            <form class="ui form" method="post" action="/posts" accept-charset="UTF-8">
+              <div class="required field">
+                <label style="color:white">title</label>
+                <input type="text" placeholder="title" name="post[title]">
+              </div>
+              <div class="required field">
+                <label style="color:white">具体内容（可与标题相同）</label>
+                <textarea row="2" placeholder="content" name="post[content]"></textarea>
+              </div>
+               <div class="ui blue submit button" id="submit_question">提交问题</div>
+               <div class="ui error message"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+<br/>

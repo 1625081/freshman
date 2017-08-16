@@ -16,6 +16,10 @@ $(document).on "turbolinks:load", ->
   $(".red.button , .blue.button").on 'click', (e) ->
     e.stopPropagation()
 
+  $('#new_question').dimmer "hide"
+  $('#ask_question').on "click", ->
+    $('#new_question').dimmer "show"
+
   $('#flash').on "click", ->
     $(this).hide()
   $('.choosen_tag').on "click", ->
@@ -41,3 +45,33 @@ $(document).on "turbolinks:load", ->
     numarr.push($(tag).attr("data-tag")) for tag in tags when $(tag).hasClass("teal") and $(tag).attr("data-tag") not in numarr
     $('#tags_submit').val numarr
     $('form').submit()
+  
+  $("#submit_question").on "click", ->
+    $("form").submit()
+
+  $('.ui.form')
+    .form({
+      fields : {
+        title : {
+          identifier : 'post[title]',
+          rules: [
+            {
+              type  : 'empty',
+              prompt  : '标题不可为空哦~'
+            },{
+              type  : 'minLength[6]',
+              prompt : '小哥哥太短了啦(*/ω＼*)'
+            }
+          ]
+        },
+        content : {
+          identifier : 'post[content]',
+          rules : [
+            {
+              type  : 'empty',
+              prompt  : '内容不可为空哦~'
+            }
+          ]
+        }
+      }
+    })
