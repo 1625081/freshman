@@ -1,5 +1,12 @@
+<%# notice %>
+<% flash.each do |k,v| %>
+<div class="ui positive message">
+  <i class="close icon"></i>
+  <div class="header"><%= v%></div>
+</div>
+<% end %>
 
-<div class="ui top attached blue inverted header">
+<div class="ui top attached blue inverted header" style="margin-top:0">
   <div class="ui center aligned container">
     <p>新生答疑汇总</p></div>
     <%# power set %>
@@ -19,9 +26,9 @@
 
 </div>
 
-<div class="ui attached center aligned segment" style="background-size:100% 100%;background-image:url('http://ofnfnmmn0.bkt.clouddn.com/blueBG.jpg');background-repeat:no-repeat;">
+<div id="upper" class="ui attached center aligned segment" style="background-size:100% 100%;background-image:url('http://ofnfnmmn0.bkt.clouddn.com/blueBG.jpg');background-repeat:no-repeat;">
   <div class="ui fluid category search" style="padding:15% 0 20% 0">
-    <form action="/posts/search" method="post" data-remote="true">
+    <form action="/posts/search" id="search_form" method="post" data-remote="true">
       <div class="ui icon input">
         <input class="prompt" type="text" name="key" placeholder="Search keywords...">
         <i class="search link icon"></i>

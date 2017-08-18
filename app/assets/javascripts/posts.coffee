@@ -12,8 +12,19 @@ $(document).on "turbolinks:load", ->
     href = $(this).data("link")
     window.location.href = href
 
-  $('.main_post').on "click", post_dir
-  $(".red.button , .blue.button").on 'click', (e) ->
+  sdown = () ->
+    $("#upper").slideDown()
+    $(".header").unbind "click",sdown
+    $(".header p:first").html("新生答疑汇总")
+
+  $("#search_form").on "submit", ->
+    $("#upper").slideUp()
+    $(".header p:first").html("返回顶部")
+    $(".header").bind "click",sdown
+
+  # 对子元素实现动态绑定
+  $("body").on "click",".main_post", post_dir
+  $("body").on 'click',".red.button , .blue.button", (e) ->
     e.stopPropagation()
 
   $('#new_question').dimmer "hide"
@@ -45,7 +56,7 @@ $(document).on "turbolinks:load", ->
     numarr.push($(tag).attr("data-tag")) for tag in tags when $(tag).hasClass("teal") and $(tag).attr("data-tag") not in numarr
     $('#tags_submit').val numarr
     $('form').submit()
-  
+
   $("#submit_question").on "click", ->
     $("form").submit()
 

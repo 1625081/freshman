@@ -31,10 +31,16 @@ class PostsController < ApplicationController
   # POST /posts.json
   def search
     results = []
+    notnil = []
     if params[:key]
       params[:key].downcase!
       keywords=params[:key].split(" ")
       Post.all.each do |p|
+        if p.status == 1
+          notnil << p
+        elsif p.status == 0
+          next
+        end
         for key in keywords
           if p.title.include? key
              results << p
@@ -44,7 +50,7 @@ class PostsController < ApplicationController
         end
       end
     end
-    results = Post.all if params[:key] == ""
+    results = notnil if params[:key] == ""
     @results = results
     respond_to do |f|
       f.js

@@ -38,6 +38,11 @@ $(document).on "turbolinks:load", ->
       toolbar: ['bold', 'italic', 'underline', '|', 'ol', 'ul', 'blockquote', 'code', '|', 'link',  '|','image', 'indent', 'outdent', '|', 'hr', 'table']
     )
 
+  $('.message').on 'click', () ->
+    $(this)
+      .closest('.message')
+      .transition('fade')
+
   if $("body").data 'action' in ["show","index"]
     $("body").css 'background','beige'
     $("table").addClass "ui unstackable celled table"
