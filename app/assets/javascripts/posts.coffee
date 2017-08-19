@@ -22,6 +22,10 @@ $(document).on "turbolinks:load", ->
     $(".header p:first").html("返回顶部")
     $(".header").bind "click",sdown
 
+  $("body").on "click",".top_label", ->
+    $("input:first").val($(this).data('tag'))
+    $("#search_form").submit()
+
   # 对子元素实现动态绑定
   $("body").on "click",".main_post", post_dir
   $("body").on 'click',".red.button , .blue.button", (e) ->

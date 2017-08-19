@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  force_ssl if: :run_production?
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authericate_user!, only: [:edit, :update, :destroy, :new, :manage]
 

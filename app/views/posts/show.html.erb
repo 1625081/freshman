@@ -2,7 +2,7 @@
   <div class="ui center aligned container">
     <p>新生答疑汇总</p></div>
 </div>
-<%# notice %>
+
 <div class="ui attached segment comments" style="background:gainsboro;max-width:100%" >
   <div class="comment">
     <div class="avatar" style="width:auto;margin:0">
@@ -22,8 +22,9 @@
 </div>
 <div class="ui attached segment comments" style="max-width:100%">
   <div class="comment">
-    <a class="avatar" style="height:41px;">
-      <img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1501513171&di=fc775f260a0da6c253df3c5f6a08921d&src=http://www.buaa.edu.cn/__local/B/CD/A6/968D8F6600C0B8195CD59008BF5_9249A080_12AB7.jpg">
+    <a class="avatar" style="height:40px;">
+      <% id = (@post.id%2 + 1).to_s %>
+      <img src="<%= 'http://ofnfnmmn0.bkt.clouddn.com/replier'+id+'.jpg' %>">
     </a>
     <div class="content">
       <a class="author">

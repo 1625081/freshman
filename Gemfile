@@ -22,8 +22,10 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 
 # use searching gems --- elastic-search
-gem 'tire', '0.5.4'
+# gem 'tire', '0.5.4'
 
+# combine wechat
+gem 'weixin_authorize'
 # uploader
 gem 'carrierwave'
 

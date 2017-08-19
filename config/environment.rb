@@ -10,5 +10,7 @@ require_relative 'application'
 #   p "Wrong configuration: #{e}"
 # end
 
+$client ||= WeixinAuthorize::Client.new(ENV["APPID"], ENV["APPSECRET"])
+$client.is_valid?
 # Initialize the Rails application.
 Rails.application.initialize!
