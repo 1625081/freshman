@@ -26,7 +26,7 @@
 </div>
 
 <div id="upper" class="ui attached center aligned segment" style="background-size:100% 100%;background-image:url('http://ofnfnmmn0.bkt.clouddn.com/blueBG.jpg');background-repeat:no-repeat;">
-  <div class="ui fluid category search" style="padding:15% 0 20% 0">
+  <div class="ui fluid category search" style="padding:85px 0 85px 0">
     <form action="/posts/search" id="search_form" method="post" data-remote="true">
       <div class="ui icon input">
         <input class="prompt" type="text" name="key" placeholder="Search keywords...">
@@ -34,6 +34,21 @@
       </div>
     </form>
   </div>
+</div>
+
+<div class="tags_zone" style="margin-top:10px;margin-bottom:5px;margin-left:10px">
+  <h3 class="ui header" style="margin-bottom:5px">
+    <i class="tags icon"></i>
+    <div class="content">问题标签</div>
+  </h3>
+  <% for tag in  Tag.all.sort_by{|u| -u.posts.count} %>
+    <div class="ui large circular label top_label" style="margin-top:10px" data-tag="<%=tag.name%>">
+      <%= tag.name %>
+      <div class="detail">
+        <%= tag.posts.count %>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <div class="results">

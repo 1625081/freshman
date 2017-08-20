@@ -1,17 +1,3 @@
-<div class="tags_zone" style="margin-top:1%;margin-bottom:1%;margin-left:1%">
-  <h3 class="ui header">
-    <i class="tags icon"></i>
-    <div class="content">问题标签</div>
-  </h3>
-  <% for tag in  Tag.all.sort_by{|u| -u.posts.count} %>
-    <div class="ui large circular label top_label" data-tag="<%=tag.name%>">
-      <%= tag.name %>
-      <div class="detail">
-        <%= tag.posts.count %>
-      </div>
-    </div>
-  <% end %>
-</div>
 <% for post in posts %>
 <div class="ui attached segment comments" style="max-width:100%">
   <div class="comment main_post" data-link="<%= post_path(post) %>">
