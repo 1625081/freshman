@@ -43,6 +43,11 @@ $(document).on "turbolinks:load", ->
       .closest('.message')
       .transition('fade')
 
+  width = $(window).width()
+  $(".ui.fluid.category.search").css("padding-top",width*0.408/2)
+  $(".ui.fluid.category.search").css("padding-bottom",width*0.408/2)
+
+
   if $("body").data 'action' in ["show","index"]
     $("body").css 'background','beige'
     $("table").addClass "ui unstackable celled table"
