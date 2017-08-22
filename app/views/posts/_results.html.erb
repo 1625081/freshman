@@ -13,11 +13,14 @@
       <div class="text">
         <%= post.title %>
         <% if current_user %>
-          <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <button class="circular ui right floated icon red button">
-              <i class="remove link icon"></i>
+          <!-- 这里要使用button_to不然会有bug -->
+          <form class="button_to" method="post" data-confirm="你真的要删掉我嘛?" action="<%= post_path(post) %>">
+            <input type="hidden" name="_method" value="delete">
+            <button class="circular ui right floated icon red button" type="submit">
+              <i class="delete link icon"></i>
             </button>
-          <% end %>
+          </form>
+
           <% if post.status == 1 %>
             <%= link_to edit_post_path(post) do %>
               <button class="circular ui right floated icon blue button">
