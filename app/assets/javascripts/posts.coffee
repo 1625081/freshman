@@ -10,7 +10,7 @@ $(document).on "turbolinks:load", ->
   #   window.location.href = href
   post_dir = () ->
     href = $(this).data("link")
-    window.location.href = href
+    document.location.href = href
 
   sdown = () ->
     $("#upper").slideDown()
