@@ -111,6 +111,7 @@ class PostsController < ApplicationController
   def update
     names = params[:post][:tags].split(",")
     @post.tags = names_to_tags(names)
+    @post.status = 1
 
     respond_to do |format|
       if @post.update(post_params) and @post.save
