@@ -41,7 +41,7 @@
     <i class="tags icon"></i>
     <div class="content">问题标签</div>
   </h3>
-  <% for tag in  Tag.all.sort_by{|u| -u.posts.count} %>
+  <% for tag in  Tag.no_empty.sort_by{|u| -u.posts.count} %>
     <div class="ui large circular label top_label" style="margin-top:10px" data-tag="<%=tag.name%>">
       <%= tag.name %>
       <div class="detail">

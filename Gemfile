@@ -25,7 +25,7 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'tire', '0.5.4'
 
 # combine wechat
-gem 'weixin_authorize'
+# gem 'weixin_authorize'
 # uploader
 gem 'carrierwave'
 
