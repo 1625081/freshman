@@ -1,24 +1,9 @@
-# README
+## 网站简介：
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+本网站基于[Ruby On Rails](https://ruby-china.github.io/rails-guides/)开发。Ruby On Rails是一种革命性的在线编程工具，它前所未有地加速和简化了电子商务网站的构建。有了Ruby和Rails提供的开发平台，即使是Web编程的新手也能快速开发出Web应用程序。
 
-Things you may want to cover:
+本网页涉及的知识点主要有：Ruby和Rails的安装步骤；条件、循环、方法以及块等概念；Ruby中的类和对象；如何构建Rails应用程序、连接数据库、执行必要的测试以及如何将这些内容整合在一起创建实际的应用程序。
 
-* Ruby version
+本平台实现的主要功能有：创建问题，设置权限，审核问题，更新问题，删除问题，问题预览。总体上是一个轻量级的应用，源代码位于[Github](https://github.com/1625081/freshman)可以作为同类网站建设时参考。
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+网站建设完成后，可以考虑部署到服务器，学生会可以选择部署到校内服务器，或者部署到自己租用的服务器，之后把服务器的地址或者自己购买的域名挂载到微信菜单界面上。
