@@ -15,7 +15,7 @@ $(document).on "turbolinks:load", ->
   sdown = () ->
     $("#upper").slideDown()
     $(".header").unbind "click",sdown
-    $(".header p:first").html("新生答疑汇总")
+    $(".header p:first").html("权益问题汇总平台")
 
   $("#search_form").on "submit", ->
     $("#upper").slideUp()

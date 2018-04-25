@@ -37,6 +37,18 @@ $(document).on "turbolinks:load", ->
       pasteImage: true
       toolbar: ['bold', 'italic', 'underline', '|', 'ol', 'ul', 'blockquote', 'code', '|', 'link',  '|','image', 'indent', 'outdent', '|', 'hr', 'table']
     )
+    editor = new Simditor(
+      textarea: $('textarea:first')
+      tabIndent: true
+      params: {}
+      toolbarFloat: true
+      upload:
+        url: '/images'
+        connectionCount: 1
+        leaveConfirm: '正在上传文件，如果离开上传会自动取消'
+      pasteImage: true
+      toolbar: ['bold', 'italic', 'underline', '|', 'ol', 'ul', 'blockquote', 'code', '|', 'link',  '|','image', 'indent', 'outdent', '|', 'hr', 'table']
+    )
 
   $('.message').on 'click', () ->
     $(this)
@@ -52,3 +64,6 @@ $(document).on "turbolinks:load", ->
     $("body").css 'background','beige'
     $("table").addClass "ui unstackable celled table"
     $("img").addClass "ui image"
+
+  $('.ui.sticky')
+    .sticky()

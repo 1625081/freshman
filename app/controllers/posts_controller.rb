@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :authericate_user!, only: [:edit, :update, :destroy, :new, :manage]
+  before_action :authericate_user!, only: [:edit, :update, :destroy, :manage]
 
   def run_production?
     Rails.env.production?

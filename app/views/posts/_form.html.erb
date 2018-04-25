@@ -22,7 +22,7 @@
       <%= f.text_area :content %>
     </div>
   </div>
-
+ <% if params[:action] != "new" %>
   <div class="field">
     <%= f.label :replier %>
     <%= f.text_field :replier %>
@@ -32,7 +32,6 @@
     <%= f.label :answer %>
     <%= f.text_area :answer %>
   </div>
-
 
   <input type="hidden" name="post[tags]" id="tags_submit" value="">
 
@@ -58,6 +57,7 @@
       <% end %>
     <% end %>
   </div>
+  <% end %>
 
   <div class="actions">
     <% if params[:action] == "new" %>
